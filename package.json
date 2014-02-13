@@ -18,7 +18,9 @@
     "template",
     "precompilation",
     "gulp",
-    "plugin"
+    "plugin",
+    "gulpplugin",
+    "gulpfriendly"
   ],
   "author": "Kent Liau",
   "license": "MIT",
