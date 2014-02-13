@@ -8,7 +8,7 @@
 [![NPM version](https://badge.fury.io/js/gulp-dot-precompiler.png)](http://badge.fury.io/js/gulp-dot-precompiler)
 [![Coverage Status](https://coveralls.io/repos/kentliau/gulp-dot-precompiler/badge.png)](https://coveralls.io/r/kentliau/gulp-dot-precompiler)
 
-[![NPM](https://nodei.co/npm/gulp-dot-precompiler.png)](https://nodei.co/npm/gulp-dot-precompiler/)
+[![NPM](https://nodei.co/npm/gulp-dot-precompiler.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-dot-precompiler/)
 
 ## Example
 
