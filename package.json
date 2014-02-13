@@ -1,0 +1,29 @@
+{
+  "name": "gulp-doT",
+  "version": "0.0.1",
+  "description": "Gulp plugins for precompilation of doT template engine.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- --recursive test -R spec -r should && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kentliau/gulp-doT.git"
+  },
+  "keywords": [
+    "doT",
+    "template",
+    "precompilation",
+    "gulp",
+    "plugin"
+  ],
+  "author": "Kent Liau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kentliau/gulp-doT/issues"
+  },
+  "homepage": "https://github.com/kentliau/gulp-doT"
+}
