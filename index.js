@@ -5,7 +5,7 @@ var _ = require('lodash');
 var path = require('path');
 var PluginError = gutil.PluginError;
 
-const PLUGIN_NAME = 'gulp-doT';
+const PLUGIN_NAME = 'gulp-dot-precompiler';
 
 function getTemplateName(root, name, extension, separator) {
   var parts = name.split(path.sep);
