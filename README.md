@@ -14,6 +14,7 @@
 
 If we have following folder structure:
 
+
 ```
 app/views/users/list.dot
 app/views/users/detail.dot
