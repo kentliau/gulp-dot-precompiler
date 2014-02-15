@@ -1,6 +1,6 @@
 # gulp-dot-precompiler
 
-[Gulp](https://github.com/gulpjs/gulp) plugin for precompilation of [doT](https://github.com/olado/doT) templates. Forked from [titarenko/gulp-dotify](https://github.com/titarenko/gulp-dotify) but with more control and much more logical.
+Better [Gulp](https://github.com/gulpjs/gulp) plugin for precompilation of [doT](https://github.com/olado/doT) templates. Forked from [titarenko/gulp-dotify](https://github.com/titarenko/gulp-dotify) but with more control and much more logical.
 
 ## Status
 
@@ -9,6 +9,31 @@
 [![Coverage Status](https://coveralls.io/repos/kentliau/gulp-dot-precompiler/badge.png)](https://coveralls.io/r/kentliau/gulp-dot-precompiler)
 
 [![NPM](https://nodei.co/npm/gulp-dot-precompiler.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-dot-precompiler/)
+
+
+## Options
+
+* root :  prepend a name for the template name, default ''
+* extension : append a name for the template name, default ''
+* separator : separator for the name, default '.'
+* dictionary : template function name, default 'render'
+* varname : refer [doT](https://github.com/olado/doT), default 'data'
+* strip : refer [doT](https://github.com/olado/doT), default true
+* append : refer [doT](https://github.com/olado/doT), default true
+* selfcontained : refer [doT](https://github.com/olado/doT), default false
+
+
+##Include Partial View
+
+
+```
+< p > This is the main view < / p >
+
+{{#def.loadfile('./sub_view.def') }}
+```
+
+This will include the `sub_view.def` from the same directory where the `loadfile()` is called. Not necessary to use `.def` as extension.
+
 
 ## Example
 
@@ -49,16 +74,12 @@ render['users.detail'] = function ...
 render['layout'] = function ...
 ```
 
-## Options
 
-* root --  prepend a name for the template name, default ''
-* extension -- append a name for the template name, default ''
-* separator -- separator for the name, default '.'
-* dictionary -- template function name, default 'render'
-* varname -- refer [doT](https://github.com/olado/doT), default 'data'
-* strip -- refer [doT](https://github.com/olado/doT), default true
-* append -- refer [doT](https://github.com/olado/doT), default true
-* selfcontained -- refer [doT](https://github.com/olado/doT), default false
+##Todo
+
+- rename all the options to be more self-descriptive
+- add dot delimiter options
+- allow loadfile() using object oriented way of parameter, just like laravel
 
 ## License
 
