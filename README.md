@@ -7,6 +7,8 @@ Better [Gulp](https://github.com/gulpjs/gulp) plugin for precompilation of [doT]
 [![Build Status](https://secure.travis-ci.org/kentliau/gulp-dot-precompiler.png?branch=master)](https://travis-ci.org/kentliau/gulp-dot-precompiler)
 [![NPM version](https://badge.fury.io/js/gulp-dot-precompiler.png)](http://badge.fury.io/js/gulp-dot-precompiler)
 [![Coverage Status](https://coveralls.io/repos/kentliau/gulp-dot-precompiler/badge.png)](https://coveralls.io/r/kentliau/gulp-dot-precompiler)
+[![Dependecy Status](https://david-dm.org/kentliau/gulp-dot-precompiler.png)](https://david-dm.org/kentliau/gulp-dot-precompiler.png)
+
 
 [![NPM](https://nodei.co/npm/gulp-dot-precompiler.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-dot-precompiler/)
 
@@ -25,7 +27,6 @@ Better [Gulp](https://github.com/gulpjs/gulp) plugin for precompilation of [doT]
 
 ##Include Partial View
 
-
 ```
 < p > This is the main view < / p >
 
@@ -33,6 +34,38 @@ Better [Gulp](https://github.com/gulpjs/gulp) plugin for precompilation of [doT]
 ```
 
 This will include the `sub_view.def` from the same directory where the `loadfile()` is called. Not necessary to use `.def` as extension.
+
+
+###Now with Error emitter
+
+listen error in your gulp file
+
+```
+
+gulp.task('templates', function() {
+    gulp.src( src_template )
+    .pipe(plugins['dot-precompiler']({
+                                       dictionary:'render',
+                                       selfcontained:true,
+                                       append:true
+                                     })
+      .on('error', plugins['notify']
+        .onError({ title: "ERROR",
+                   message: "Error: <%= error.message %>" })))
+
+    // Build multiple compressed version
+    .pipe(plugins['rename']({ extname: '.blade.php' }))
+    .pipe(plugins['uglify']())
+    .pipe(gulp.dest( build_template['server'] ))
+
+    // Build a concatenated version in public
+    .pipe(plugins['concat']('all.min.js'))
+    .pipe(plugins['header']('window.render=window.render||{};'))
+    .pipe(plugins['uglify']())
+    .pipe(gulp.dest( build_template['client'] ))
+    .pipe(plugins['notify']({ title: 'OK', message: 'Templates task complete' }));
+});
+```
 
 
 ## Example
