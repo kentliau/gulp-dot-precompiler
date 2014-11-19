@@ -22,10 +22,10 @@ function getTemplateName(root, name, extension, separator) {
   return parts.join(separator);
 }
 
-function getTemplateCode(content,dotSetting,defs) {
+function getTemplateCode(content,templateSettings,defs) {
   var compiled;
   try {
-    compiled = dot.template(content,dotSetting,defs).toString();
+    compiled = dot.template(content,templateSettings,defs).toString();
   } catch(err){
     console.log(err);
     return err;
@@ -48,32 +48,28 @@ function readStream(stream, done) {
 function gulpDotify(options) {
   options = options || {};
   _.defaults(options, {
-    root: '',
-    separator: '.',
-    extension: '',
+    root:       '',
+    separator:  '.',
+    extension:  '',
     dictionary: 'render',
-    //doT.js setting
-    varname: 'data',
-    strip:    true,
-    append:   true,
-    selfcontained: false
-  });
 
-  var dotSetting = {
-      evaluate:    /\{\{([\s\S]+?(\}?)+)\}\}/g,
-      interpolate: /\{\{=([\s\S]+?)\}\}/g,
-      encode:      /\{\{!([\s\S]+?)\}\}/g,
-      use:         /\{\{#([\s\S]+?)\}\}/g,
-      useParams:   /(^|[^\w$])def(?:\.|\[[\'\"])([\w$\.]+)(?:[\'\"]\])?\s*\:\s*([\w$\.]+|\"[^\"]+\"|\'[^\']+\'|\{[^\}]+\})/g,
-      define:      /\{\{##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\}\}/g,
-      defineParams:/^\s*([\w$]+):([\s\S]+)/,
-      conditional: /\{\{\?(\?)?\s*([\s\S]*?)\s*\}\}/g,
-      iterate:     /\{\{~\s*(?:\}\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\}\})/g,
-      varname:  options.varname,
-      strip:    options.strip,
-      append:   options.append,
-      selfcontained: options.selfcontained
-  };
+    //doT.js setting
+    templateSettings: {
+      evaluate:       /\{\{([\s\S]+?(\}?)+)\}\}/g,
+      interpolate:    /\{\{=([\s\S]+?)\}\}/g,
+      encode:         /\{\{!([\s\S]+?)\}\}/g,
+      use:            /\{\{#([\s\S]+?)\}\}/g,
+      useParams:      /(^|[^\w$])def(?:\.|\[[\'\"])([\w$\.]+)(?:[\'\"]\])?\s*\:\s*([\w$\.]+|\"[^\"]+\"|\'[^\']+\'|\{[^\}]+\})/g,
+      define:         /\{\{##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\}\}/g,
+      defineParams:   /^\s*([\w$]+):([\s\S]+)/,
+      conditional:    /\{\{\?(\?)?\s*([\s\S]*?)\s*\}\}/g,
+      iterate:        /\{\{~\s*(?:\}\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\}\})/g,
+      varname:        'data',
+      strip:          true,
+      append:         true,
+      selfcontained:  false
+    }
+  });
 
   var stream = through.obj(function (file, enc, callback) {
     var complete = function (error, contents) {
@@ -90,7 +86,7 @@ function gulpDotify(options) {
       var trimmed_ext = relative_path.substr(0, relative_path.lastIndexOf('.')) || relative_path;
 
       var name = getTemplateName(options.root, trimmed_ext, options.extension, options.separator);
-      var code = getTemplateCode(contents,dotSetting,defs);
+      var code = getTemplateCode(contents,options.templateSettings,defs);
       if(typeof code !== "string")
       {
         this.emit('error', new PluginError(PLUGIN_NAME, code));
