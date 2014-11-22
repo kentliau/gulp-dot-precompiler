@@ -19,11 +19,7 @@ Better [Gulp](https://github.com/gulpjs/gulp) plugin for precompilation of [doT]
 * extension : append a name for the template name, default ''
 * separator : separator for the name, default '.'
 * dictionary : template function name, default 'render'
-* varname : refer [doT](https://github.com/olado/doT), default 'data'
-* strip : refer [doT](https://github.com/olado/doT), default true
-* append : refer [doT](https://github.com/olado/doT), default true
-* selfcontained : refer [doT](https://github.com/olado/doT), default false
-
+* templateSettings : [doT](https://github.com/olado/doT) template settings
 
 ##Include Partial View
 
