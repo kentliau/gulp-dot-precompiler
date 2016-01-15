@@ -78,7 +78,7 @@ function gulpDotify(options) {
       }
 
       defs.loadfile = function(include_path) {
-        current_path = (file.path).substr(0, (file.path).lastIndexOf('/')+1 );
+        current_path = (file.path).substr(0, (file.path).lastIndexOf(path.sep)+1 );
         return fs.readFileSync(current_path + include_path);
       };
 
