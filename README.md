@@ -98,12 +98,6 @@ render['layout'] = function ...
 ```
 
 
-##Todo
-
-- [] rename all the options to be more self-descriptive
-- [x] add dot delimiter options @caseyWebb
-- [] allow loadfile() using object oriented way of parameter, just like laravel
-
 ## License
 
 MIT
