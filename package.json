@@ -1,5 +1,5 @@
 {
-  "name": "gulp-dot-precompiler",
+  "name": "gulp-dot-precompiler2",
   "version": "0.3.0",
   "description": "Gulp plugins for precompilation of doT template engine.",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kentliau/gulp-dot-precompiler.git"
+    "url": "https://github.com/rndm2/gulp-dot-precompiler2.git"
   },
   "keywords": [
     "doT",
@@ -25,9 +25,9 @@
   "author": "Kent Liau",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kentliau/gulp-dot-precompiler/issues"
+    "url": "https://github.com/rndm2/gulp-dot-precompiler2/issues"
   },
-  "homepage": "https://github.com/kentliau/gulp-dot-precompiler",
+  "homepage": "https://github.com/rndm2/gulp-dot-precompiler2",
   "dependencies": {
     "lodash": "~2.4.1",
     "dot": "~1.0.2",
