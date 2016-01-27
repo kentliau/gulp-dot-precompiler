@@ -52,6 +52,7 @@ function gulpDotify(options) {
     separator:  '.',
     extension:  '',
     dictionary: 'render',
+    namedTemplates: true,
 
     //doT.js setting
     templateSettings: {
@@ -91,7 +92,11 @@ function gulpDotify(options) {
       {
         this.emit('error', new PluginError(PLUGIN_NAME, code));
       }
-      file.contents = new Buffer([options.dictionary, '["', name, '"] = ', code, ';'].join(''));
+      var prefix = '';
+      if (options.namedTemplates === true) {
+        prefix = '["', name, '"]';
+      }
+      file.contents = new Buffer([options.dictionary, prefix + ' = ', code, ';'].join(''));
 
       this.push(file);
       return callback();
