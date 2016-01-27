@@ -74,7 +74,7 @@ app/views/layout.dot
 Then, running this code:
 
 ```js
-var dot = require('gulp-dot-precompiler'),
+var dot = require('gulp-dot-precompiler2'),
     concat = require('gulp-concat'), // npm install gulp-concat --save
     header = require('gulp-header'); // npm install gulp-header --save
 
