@@ -1,16 +1,10 @@
-# gulp-dot-precompiler
+# gulp-dot-precompiler2
 
-Better [Gulp](https://github.com/gulpjs/gulp) plugin for precompilation of [doT](https://github.com/olado/doT) templates. Forked from [titarenko/gulp-dotify](https://github.com/titarenko/gulp-dotify) but with more control and much more logical.
-
-## Status
-
-[![Build Status](https://secure.travis-ci.org/kentliau/gulp-dot-precompiler.png?branch=master)](https://travis-ci.org/kentliau/gulp-dot-precompiler)
-[![NPM version](https://badge.fury.io/js/gulp-dot-precompiler.png)](http://badge.fury.io/js/gulp-dot-precompiler)
-[![Coverage Status](https://coveralls.io/repos/kentliau/gulp-dot-precompiler/badge.png)](https://coveralls.io/r/kentliau/gulp-dot-precompiler)
-[![Dependecy Status](https://david-dm.org/kentliau/gulp-dot-precompiler.png)](https://david-dm.org/kentliau/gulp-dot-precompiler.png)
+Better [Gulp](https://github.com/gulpjs/gulp) plugin for precompilation of [doT](https://github.com/olado/doT) templates. Forked from [kentliau/gulp-dot-precompiler](https://github.com/kentliau/gulp-dot-precompiler) with more control and bugfixes.
 
 
-[![NPM](https://nodei.co/npm/gulp-dot-precompiler.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-dot-precompiler/)
+
+[![NPM](https://nodei.co/npm/gulp-dot-precompiler2.png?downloads=true&stars=true)](https://nodei.co/npm/gulp-dot-precompiler2/)
 
 
 ## Options
@@ -80,7 +74,7 @@ app/views/layout.dot
 Then, running this code:
 
 ```js
-var dot = require('gulp-dot-precompiler'),
+var dot = require('gulp-dot-precompiler2'),
     concat = require('gulp-concat'), // npm install gulp-concat --save
     header = require('gulp-header'); // npm install gulp-header --save
 
@@ -103,12 +97,6 @@ render['users.detail'] = function ...
 render['layout'] = function ...
 ```
 
-
-##Todo
-
-- [] rename all the options to be more self-descriptive
-- [x] add dot delimiter options @caseyWebb
-- [] allow loadfile() using object oriented way of parameter, just like laravel
 
 ## License
 

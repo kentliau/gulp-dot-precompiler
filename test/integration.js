@@ -1,7 +1,7 @@
 var dot = require('../');
 var gutil = require('gulp-util');
 
-describe('gulp-dot-precompiler', function () {
+describe('gulp-dot-precompiler2', function () {
   it('should process files with default options just as expected :)', function (done) {
     var stream = dot();
 
